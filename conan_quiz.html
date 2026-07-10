@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>名探偵コナンクイズ</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>名探偵コナンクイズ</h1>
+
+<div id="startScreen">
+
+<p>
+全90問以上の中からランダムで10問出題されます。
+</p>
+
+<button id="startButton">
+スタート
+</button>
+
+</div>
+
+<div id="quizScreen" style="display:none;">
+
+<h2 id="questionNumber"></h2>
+
+<h3 id="question"></h3>
+
+<div id="choices"></div>
+
+<div class="buttons">
+
+<button id="prevButton">
+前へ
+</button>
+
+<button id="nextButton">
+次へ
+</button>
+
+</div>
+
+</div>
+
+<div id="resultScreen" style="display:none;">
+
+<h2 id="resultText"></h2>
+
+<button id="retryButton">
+もう一度プレイ
+</button>
+
+</div>
+
+</div>
+
+<script src="question.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
