@@ -173,7 +173,6 @@ function showResult(){
     document.getElementById("resultText").textContent =
         "あなたのスコアは " + score + " / 10 点です！";
 
-    // X投稿ボタン
     tweetButton.onclick = function(){
 
         const text =
@@ -187,14 +186,13 @@ function showResult(){
         const url =
 "https://senmu12.github.io/meitanteiconan-quiz/";
 
-        const tweetUrl =
-"https://twitter.com/intent/tweet?text="
-+ encodeURIComponent(text)
-+ "&url="
-+ encodeURIComponent(url);
-
-        window.open(tweetUrl, "_blank");
-
+        window.open(
+            "https://twitter.com/intent/tweet?text="
+            + encodeURIComponent(text)
+            + "&url="
+            + encodeURIComponent(url),
+            "_blank"
+        );
     };
 
 }
