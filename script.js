@@ -176,11 +176,11 @@ function showResult(){
 const text =
 `名探偵コナンクイズで ${score}/10点でした！
 あなたも挑戦してみよう！
-
+#名探偵コナン
+#コナンクイズ
 https://senmu12.github.io/meitanteiconan-quiz/
 
-#名探偵コナン
-#コナンクイズ`;
+`;
 
 window.open(
     "https://twitter.com/intent/tweet?text=" +
