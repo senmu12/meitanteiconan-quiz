@@ -166,7 +166,7 @@ function calculateScore(){
 }
 
 function showResult(){
-
+console.log(tweetButton);
     quizScreen.style.display = "none";
     resultScreen.style.display = "block";
 
