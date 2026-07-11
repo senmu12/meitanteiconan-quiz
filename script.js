@@ -1,10 +1,8 @@
-// ===== 変数 =====
 let questions = [];
 let currentQuestion = 0;
 let score = 0;
 let selectedAnswers = [];
 
-// ===== HTML取得 =====
 const startScreen = document.getElementById("startScreen");
 const quizScreen = document.getElementById("quizScreen");
 const resultScreen = document.getElementById("resultScreen");
@@ -17,15 +15,12 @@ const startButton = document.getElementById("startButton");
 const prevButton = document.getElementById("prevButton");
 const nextButton = document.getElementById("nextButton");
 const retryButton = document.getElementById("retryButton");
-const tweetButton = document.getElementById("tweetButton");
 
-// ===== ボタン設定 =====
 startButton.onclick = startQuiz;
 prevButton.onclick = prevQuestion;
 nextButton.onclick = nextQuestion;
 retryButton.onclick = resetQuiz;
 
-// ===== クイズ開始 =====
 function startQuiz(){
 
     questions = [...quizData];
@@ -42,7 +37,7 @@ function startQuiz(){
 
     });
 
-    selectedAnswers = new Array(questions.length).fill(null);
+    selectedAnswers = new Array(10).fill(null);
 
     currentQuestion = 0;
 
@@ -56,7 +51,6 @@ function startQuiz(){
 
 }
 
-// ===== シャッフル =====
 function shuffle(array){
 
     for(let i=array.length-1;i>0;i--){
@@ -69,13 +63,12 @@ function shuffle(array){
 
 }
 
-// ===== 問題表示 =====
 function showQuestion(){
 
     const q = questions[currentQuestion];
 
     questionNumber.textContent =
-        "問題 " + (currentQuestion+1) + " / " + questions.length;
+        "問題 " + (currentQuestion + 1) + " / 10";
 
     question.textContent = q.question;
 
@@ -95,7 +88,7 @@ function showQuestion(){
 
         }
 
-        btn.onclick = function(){
+        btn.onclick=function(){
 
             selectedAnswers[currentQuestion]=index;
 
@@ -107,14 +100,13 @@ function showQuestion(){
 
     });
 
-    prevButton.disabled = (currentQuestion===0);
+    prevButton.disabled=(currentQuestion===0);
 
-    nextButton.disabled =
+    nextButton.disabled=
         (selectedAnswers[currentQuestion]===null);
 
 }
 
-// ===== 前へ =====
 function prevQuestion(){
 
     if(currentQuestion>0){
@@ -127,7 +119,6 @@ function prevQuestion(){
 
 }
 
-// ===== 次へ =====
 function nextQuestion(){
 
     if(currentQuestion<questions.length-1){
@@ -136,9 +127,7 @@ function nextQuestion(){
 
         showQuestion();
 
-    }
-
-    else{
+    }else{
 
         calculateScore();
 
@@ -148,7 +137,6 @@ function nextQuestion(){
 
 }
 
-// ===== 採点 =====
 function calculateScore(){
 
     score = 0;
@@ -175,7 +163,6 @@ function calculateScore(){
 
 }
 
-// ===== 結果表示 =====
 function showResult(){
 
     quizScreen.style.display = "none";
@@ -183,45 +170,21 @@ function showResult(){
     resultScreen.style.display = "block";
 
     document.getElementById("resultText").textContent =
-        "あなたのスコアは " + score + " / " + questions.length + " 点です！";
-
-    tweetButton.onclick = function(){
-
-        const text =
-`名探偵コナンクイズで ${score}/${questions.length} 点でした！
-
-あなたも挑戦してみよう！
-
-#名探偵コナン
-#コナンクイズ`;
-
-        const url =
-"https://senmu12.github.io/meitanteiconan-quiz/";
-
-        const tweetURL =
-"https://twitter.com/intent/tweet?text="
-+ encodeURIComponent(text)
-+ "&url="
-+ encodeURIComponent(url);
-
-        window.open(tweetURL,"_blank");
-
-    };
+        "あなたのスコアは " + score + " / 10 点です！";
 
 }
 
-// ===== リセット =====
-function resetQuiz(){
 
-    startScreen.style.display = "block";
+function resetQuiz(){
 
     quizScreen.style.display = "none";
 
     resultScreen.style.display = "none";
 
+    startScreen.style.display = "block";
+
 }
 
-// ===== 初期表示 =====
 window.onload = function(){
 
     startScreen.style.display = "block";
