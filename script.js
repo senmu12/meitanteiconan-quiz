@@ -17,7 +17,6 @@ const startButton = document.getElementById("startButton");
 const prevButton = document.getElementById("prevButton");
 const nextButton = document.getElementById("nextButton");
 const retryButton = document.getElementById("retryButton");
-const tweetButton = document.getElementById("tweetButton");
 startButton.onclick = startQuiz;
 prevButton.onclick = prevQuestion;
 nextButton.onclick = nextQuestion;
