@@ -194,5 +194,3 @@ window.onload = function(){
     resultScreen.style.display = "none";
 
 };
-
-};
