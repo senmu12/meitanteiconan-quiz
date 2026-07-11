@@ -173,8 +173,12 @@ function showResult(){
     document.getElementById("resultText").textContent =
     "あなたのスコアは " + score + " / 10 です！";
 
-    const text =
-    `名探偵コナンクイズで ${score}/10 点でした！\nあなたも挑戦してみよう！`;
+const text =
+`名探偵コナンクイズで ${score}/10 点でした！
+あなたも挑戦してみよう！
+
+#名探偵コナン
+#コナンクイズ`;
 
     const url =
     "https://senmu12.github.io/meitanteiconan-quiz/";
