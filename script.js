@@ -164,7 +164,6 @@ function calculateScore(){
     }
 
 }
-
 function showResult(){
 
     quizScreen.style.display = "none";
