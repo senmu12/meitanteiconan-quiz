@@ -175,8 +175,9 @@ function showResult(){
 
 const text =
 `名探偵コナンクイズで ${score}/10 点でした！
-あなたも挑戦してみよう！#名探偵コナン
-#コナンクイズ`;
+#名探偵コナン
+#コナンクイズ
+あなたも挑戦してみよう！`;
 
     const url =
     "https://senmu12.github.io/meitanteiconan-quiz/";
