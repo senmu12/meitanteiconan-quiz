@@ -1,4 +1,4 @@
-const tweetButton = document.getElementById("tweetButton");
+
 
 let questions = [];
 let currentQuestion = 0;
@@ -17,6 +17,7 @@ const startButton = document.getElementById("startButton");
 const prevButton = document.getElementById("prevButton");
 const nextButton = document.getElementById("nextButton");
 const retryButton = document.getElementById("retryButton");
+const tweetButton = document.getElementById("tweetButton");
 startButton.onclick = startQuiz;
 prevButton.onclick = prevQuestion;
 nextButton.onclick = nextQuestion;
