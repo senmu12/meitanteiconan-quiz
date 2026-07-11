@@ -1,5 +1,3 @@
-const tweetButton = document.getElementById("tweetButton");
-
 let questions = [];
 let currentQuestion = 0;
 let score = 0;
@@ -164,33 +162,18 @@ function calculateScore(){
     }
 
 }
+
 function showResult(){
 
     quizScreen.style.display = "none";
+
     resultScreen.style.display = "block";
 
     document.getElementById("resultText").textContent =
-    "あなたのスコアは " + score + " / 10 です！";
-
-    const text =
-    `名探偵コナンクイズで ${score}/10 点でした！\nあなたも挑戦してみよう！`;
-
-    const url =
-    "https://senmu12.github.io/meitanteiconan-quiz/";
-
-    tweetButton.onclick = function(){
-
-        window.open(
-            "https://twitter.com/intent/tweet?text="
-            + encodeURIComponent(text)
-            + "&url="
-            + encodeURIComponent(url),
-            "_blank"
-        );
-
-    };
+        "あなたのスコアは " + score + " / 10 点です！";
 
 }
+
 
 function resetQuiz(){
 
@@ -209,5 +192,7 @@ window.onload = function(){
     quizScreen.style.display = "none";
 
     resultScreen.style.display = "none";
+
+};
 
 };
