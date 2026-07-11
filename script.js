@@ -179,23 +179,23 @@ function showResult() {
     tweetButton.onclick = function () {
 
         const tweetText =
+const text =
 `名探偵コナンクイズで ${score}/10点でした！
 あなたも挑戦してみよう！
-
-https://senmu12.github.io/meitanteiconan-quiz/
 
 #名探偵コナン
 #コナンクイズ`;
 
-        window.open(
-            "https://twitter.com/intent/tweet?text=" +
-            encodeURIComponent(tweetText),
-            "_blank"
-        );
+const url =
+"https://senmu12.github.io/meitanteiconan-quiz/";
 
-    };
-
-}
+window.open(
+    "https://twitter.com/intent/tweet?text="
+    + encodeURIComponent(text)
+    + "&url="
+    + encodeURIComponent(url),
+    "_blank"
+);
 
 function resetQuiz(){
 
