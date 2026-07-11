@@ -176,7 +176,6 @@ function showResult(){
 const text =
 `名探偵コナンクイズで ${score}/10 点でした！
 あなたも挑戦してみよう！
-
 #名探偵コナン
 #コナンクイズ`;
 
