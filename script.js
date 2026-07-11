@@ -165,27 +165,31 @@ function calculateScore(){
 
 }
 
-function showResult(){
+function showResult() {
 
+    // 画面切り替え
     quizScreen.style.display = "none";
     resultScreen.style.display = "block";
 
+    // スコア表示
     document.getElementById("resultText").textContent =
-    "あなたのスコアは " + score + " / 10 です！";
+        "あなたのスコアは " + score + " / 10 です！";
 
-    const text =
-    `名探偵コナンクイズで ${score}/10 点でした！\nあなたも挑戦してみよう！`;
+    // X投稿ボタンを押したときだけ実行
+    tweetButton.onclick = function () {
 
-    const url =
-    "https://senmu12.github.io/meitanteiconan-quiz/";
+        const tweetText =
+`名探偵コナンクイズで ${score}/10点でした！
+あなたも挑戦してみよう！
 
-    tweetButton.onclick = function(){
+https://senmu12.github.io/meitanteiconan-quiz/
+
+#名探偵コナン
+#コナンクイズ`;
 
         window.open(
-            "https://twitter.com/intent/tweet?text="
-            + encodeURIComponent(text)
-            + "&url="
-            + encodeURIComponent(url),
+            "https://twitter.com/intent/tweet?text=" +
+            encodeURIComponent(tweetText),
             "_blank"
         );
 
