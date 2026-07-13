@@ -15,7 +15,7 @@ const startButton = document.getElementById("startButton");
 const prevButton = document.getElementById("prevButton");
 const nextButton = document.getElementById("nextButton");
 const retryButton = document.getElementById("retryButton");
-
+const tweetButton = document.getElementById("tweetButton");
 startButton.onclick = startQuiz;
 prevButton.onclick = prevQuestion;
 nextButton.onclick = nextQuestion;
@@ -166,14 +166,35 @@ function calculateScore(){
 function showResult(){
 
     quizScreen.style.display = "none";
-
     resultScreen.style.display = "block";
 
     document.getElementById("resultText").textContent =
         "あなたのスコアは " + score + " / 10 点です！";
 
-}
+    tweetButton.onclick = function(){
 
+        const text =
+`名探偵コナンクイズで ${score}/10点でした！
+
+あなたも挑戦してみよう！
+
+#名探偵コナン
+#コナンクイズ`;
+
+        const url =
+"https://senmu12.github.io/meitanteiconan-quiz/";
+
+        const tweetUrl =
+"https://twitter.com/intent/tweet?text="
++ encodeURIComponent(text)
++ "&url="
++ encodeURIComponent(url);
+
+        window.open(tweetUrl, "_blank");
+
+    };
+
+}
 
 function resetQuiz(){
 
