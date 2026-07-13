@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -16,51 +15,58 @@
 
 <div class="container">
 
-<h1>名探偵コナンクイズ</h1>
+    <h1>名探偵コナンクイズ</h1>
 
-<div id="startScreen">
+    <!-- スタート画面 -->
+    <div id="startScreen">
 
-<p>
-全90問以上の中からランダムで10問出題されます。
-</p>
+        <p>
+            全90問以上の中からランダムで10問出題されます。
+        </p>
 
-<button id="startButton">
-スタート
-</button>
+        <button id="startButton">
+            スタート
+        </button>
 
-</div>
+    </div>
 
-<div id="quizScreen" style="display:none;">
+    <!-- クイズ画面 -->
+    <div id="quizScreen" style="display:none;">
 
-<h2 id="questionNumber"></h2>
+        <h2 id="questionNumber"></h2>
 
-<h3 id="question"></h3>
+        <h3 id="question"></h3>
 
-<div id="choices"></div>
+        <div id="choices"></div>
 
-<div class="buttons">
+        <div class="buttons">
 
-<button id="prevButton">
-前へ
-</button>
+            <button id="prevButton">
+                前へ
+            </button>
 
-<button id="nextButton">
-次へ
-</button>
+            <button id="nextButton">
+                次へ
+            </button>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
-<div id="resultScreen" style="display:none;">
+    <!-- 結果画面 -->
+    <div id="resultScreen" style="display:none;">
 
-<h2 id="resultText"></h2>
+        <h2 id="resultText"></h2>
 
-<button id="retryButton">
-もう一度プレイ
-</button>
+        <button id="retryButton">
+            もう一度プレイ
+        </button>
 
-</div>
+        <button id="tweetButton">
+            Xで結果を投稿
+        </button>
+
+    </div>
 
 </div>
 
@@ -69,3 +75,4 @@
 
 </body>
 </html>
+
