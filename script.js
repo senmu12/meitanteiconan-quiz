@@ -1,8 +1,15 @@
+// ===================================
+// 名探偵コナンクイズ
+// script.js
+// ===================================
+
+// ===== 変数 =====
 let questions = [];
 let currentQuestion = 0;
 let score = 0;
 let selectedAnswers = [];
 
+// ===== HTML取得 =====
 const startScreen = document.getElementById("startScreen");
 const quizScreen = document.getElementById("quizScreen");
 const resultScreen = document.getElementById("resultScreen");
@@ -10,17 +17,21 @@ const resultScreen = document.getElementById("resultScreen");
 const question = document.getElementById("question");
 const questionNumber = document.getElementById("questionNumber");
 const choices = document.getElementById("choices");
+const resultText = document.getElementById("resultText");
 
 const startButton = document.getElementById("startButton");
 const prevButton = document.getElementById("prevButton");
 const nextButton = document.getElementById("nextButton");
 const retryButton = document.getElementById("retryButton");
+const tweetButton = document.getElementById("tweetButton");
 
+// ===== ボタン設定 =====
 startButton.onclick = startQuiz;
 prevButton.onclick = prevQuestion;
 nextButton.onclick = nextQuestion;
 retryButton.onclick = resetQuiz;
 
+// ===== クイズ開始 =====
 function startQuiz(){
 
     questions = [...quizData];
@@ -37,7 +48,7 @@ function startQuiz(){
 
     });
 
-    selectedAnswers = new Array(10).fill(null);
+    selectedAnswers = new Array(questions.length).fill(null);
 
     currentQuestion = 0;
 
@@ -51,6 +62,7 @@ function startQuiz(){
 
 }
 
+// ===== 配列シャッフル =====
 function shuffle(array){
 
     for(let i=array.length-1;i>0;i--){
@@ -63,12 +75,14 @@ function shuffle(array){
 
 }
 
+
+// ===== 問題表示 =====
 function showQuestion(){
 
     const q = questions[currentQuestion];
 
     questionNumber.textContent =
-        "問題 " + (currentQuestion + 1) + " / 10";
+        "問題 " + (currentQuestion + 1) + " / " + questions.length;
 
     question.textContent = q.question;
 
@@ -82,13 +96,15 @@ function showQuestion(){
 
         btn.className = "choice";
 
+        // 前に選んだ答えを表示
         if(selectedAnswers[currentQuestion]===index){
 
             btn.classList.add("selected");
 
         }
 
-        btn.onclick=function(){
+        // 選択
+        btn.onclick = function(){
 
             selectedAnswers[currentQuestion]=index;
 
@@ -100,13 +116,16 @@ function showQuestion(){
 
     });
 
-    prevButton.disabled=(currentQuestion===0);
+    // 「前へ」ボタン
+    prevButton.disabled = (currentQuestion===0);
 
-    nextButton.disabled=
+    // 「次へ」は回答後のみ押せる
+    nextButton.disabled =
         (selectedAnswers[currentQuestion]===null);
 
 }
 
+// ===== 前へ =====
 function prevQuestion(){
 
     if(currentQuestion>0){
@@ -119,9 +138,10 @@ function prevQuestion(){
 
 }
 
+// ===== 次へ =====
 function nextQuestion(){
 
-    if(currentQuestion<questions.length-1){
+    if(currentQuestion < questions.length-1){
 
         currentQuestion++;
 
@@ -137,6 +157,8 @@ function nextQuestion(){
 
 }
 
+
+// ===== 採点 =====
 function calculateScore(){
 
     score = 0;
@@ -163,27 +185,53 @@ function calculateScore(){
 
 }
 
+// ===== 結果表示 =====
 function showResult(){
 
     quizScreen.style.display = "none";
-
     resultScreen.style.display = "block";
 
-    document.getElementById("resultText").textContent =
-        "あなたのスコアは " + score + " / 10 点です！";
+    resultText.textContent =
+        "あなたのスコアは " + score + " / " + questions.length + " 点です！";
+
+    // X投稿ボタン
+    tweetButton.onclick = function(){
+
+        const text =
+`名探偵コナンクイズで ${score}/${questions.length} 点でした！
+
+あなたも挑戦してみよう！
+
+#名探偵コナン
+#コナンクイズ`;
+
+        const url =
+"https://senmu12.github.io/meitanteiconan-quiz/";
+
+        const tweetUrl =
+"https://twitter.com/intent/tweet?text="
++ encodeURIComponent(text)
++ "&url="
++ encodeURIComponent(url);
+
+        window.open(tweetUrl, "_blank");
+
+    };
 
 }
 
+// ===== もう一度プレイ =====
 function resetQuiz(){
+
+    startScreen.style.display = "block";
 
     quizScreen.style.display = "none";
 
     resultScreen.style.display = "none";
 
-    startScreen.style.display = "block";
-
 }
 
+// ===== 初期表示 =====
 window.onload = function(){
 
     startScreen.style.display = "block";
