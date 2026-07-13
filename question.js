@@ -57,7 +57,7 @@ const quizData = [
         "戸叶研人"
     ],
     answer: 0
-}
+},
 
 
 
