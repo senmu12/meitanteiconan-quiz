@@ -953,7 +953,7 @@ const quizData = [
     answer: 0
 },
 {
-    question: "t時計仕掛けの摩天楼",
+    question: "時計仕掛けの摩天楼",
     choices: [
         "森谷帝二",
         "宍戸永明",
